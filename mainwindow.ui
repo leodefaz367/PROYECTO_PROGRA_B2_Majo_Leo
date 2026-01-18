@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>APLICACIÓN CRUD</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+
+   <!-- CABECERA SUPERIOR -->
+   <widget class="QFrame" name="frameCabecera">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>800</width>
+      <height>110</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <!-- COLOR FONDO CABECERA -->
+     <string notr="true">background-color: #cfe8f7;</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::NoFrame</enum>
+    </property>
+
+    <!-- NOMBRE -->
+    <widget class="QLabel" name="lblNombre">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>20</y>
+       <width>60</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Nombre</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="txtNombre">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>15</y>
+       <width>360</width>
+       <height>28</height>
+      </rect>
+     </property>
+    </widget>
+
+    <!-- BUSCAR -->
+    <widget class="QLineEdit" name="txtBuscar">
+     <property name="geometry">
+      <rect>
+       <x>480</x>
+       <y>15</y>
+       <width>150</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="placeholderText">
+      <string>Buscar jugador</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnBuscar">
+     <property name="geometry">
+      <rect>
+       <x>640</x>
+       <y>10</y>
+       <width>110</width>
+       <height>38</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Buscar</string>
+     </property>
+     <property name="styleSheet">
+      <!-- COLORES BOTÓN BUSCAR -->
+      <string notr="true">
+QPushButton {
+    background-color: #ffeb99;
+    border: 2px solid #f5a623;
+    border-radius: 4px;
+    font-weight: bold;
+}
+QPushButton:hover {
+    background-color: #ffe066;
+}
+      </string>
+     </property>
+    </widget>
+
+    <!-- FILA EDAD / POSICIÓN / CAMISETA / GOLES -->
+    <widget class="QLabel" name="lblEdad">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>65</y>
+       <width>50</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Edad</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="txtEdad">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>60</y>
+       <width>60</width>
+       <height>24</height>
+      </rect>
+     </property>
+    </widget>
+
+    <widget class="QLabel" name="lblPosicion">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>65</y>
+       <width>60</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Posición</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="txtPosicion">
+     <property name="geometry">
+      <rect>
+       <x>225</x>
+       <y>60</y>
+       <width>120</width>
+       <height>24</height>
+      </rect>
+     </property>
+    </widget>
+
+    <widget class="QLabel" name="lblCamiseta">
+     <property name="geometry">
+      <rect>
+       <x>360</x>
+       <y>65</y>
+       <width>80</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>N° camiseta</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="txtCamiseta">
+     <property name="geometry">
+      <rect>
+       <x>445</x>
+       <y>60</y>
+       <width>70</width>
+       <height>24</height>
+      </rect>
+     </property>
+    </widget>
+
+    <widget class="QLabel" name="lblGoles">
+     <property name="geometry">
+      <rect>
+       <x>530</x>
+       <y>65</y>
+       <width>50</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Goles</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="txtGoles">
+     <property name="geometry">
+      <rect>
+       <x>580</x>
+       <y>60</y>
+       <width>60</width>
+       <height>24</height>
+      </rect>
+     </property>
+    </widget>
+
+   </widget>
+
+   <!-- TABLA -->
+   <widget class="QTableWidget" name="TableJugadores">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>130</y>
+      <width>721</width>
+      <height>250</height>
+     </rect>
+    </property>
+    <column>
+     <property name="text">
+      <string>Nombre</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Edad</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Posición</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>N° camiseta</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Goles</string>
+     </property>
+    </column>
+   </widget>
+
+   <!-- BOTONES CRUD -->
+   <widget class="QPushButton" name="btnAgregar">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>410</y>
+      <width>120</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Crear</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+QPushButton {
+    background-color: #e6ffe6;
+    border: 2px solid #00a000;
+    border-radius: 4px;
+    font-weight: bold;
+}
+QPushButton:hover {
+    background-color: #ccffcc;
+}
+     </string>
+    </property>
+   </widget>
+
+   <widget class="QPushButton" name="btnEditar">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>410</y>
+      <width>120</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Actualizar</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+QPushButton {
+    background-color: #fff7e6;
+    border: 2px solid #ff9900;
+    border-radius: 4px;
+    font-weight: bold;
+}
+QPushButton:hover {
+    background-color: #ffe0b3;
+}
+     </string>
+    </property>
+   </widget>
+
+   <widget class="QPushButton" name="btnCargar">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>410</y>
+      <width>120</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Mostrar</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+QPushButton {
+    background-color: #e6f0ff;
+    border: 2px solid #3366ff;
+    border-radius: 4px;
+    font-weight: bold;
+}
+QPushButton:hover {
+    background-color: #ccdfff;
+}
+     </string>
+    </property>
+   </widget>
+
+   <widget class="QPushButton" name="btnEliminar">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>410</y>
+      <width>120</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Eliminar</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+QPushButton {
+    background-color: #ffe6e6;
+    border: 2px solid #ff0000;
+    border-radius: 4px;
+    font-weight: bold;
+}
+QPushButton:hover {
+    background-color: #ffcccc;
+}
+     </string>
+    </property>
+   </widget>
+
+   <widget class="QPushButton" name="btnGuardar">
+    <property name="geometry">
+     <rect>
+      <x>680</x>
+      <y>410</y>
+      <width>80</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Guardar</string>
+    </property>
+   </widget>
+
+  </widget>
+
+  <!-- MENÚ -->
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuInicio">
+    <property name="title">
+     <string>Inicio</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuAyuda">
+    <property name="title">
+     <string>Ayuda</string>
+    </property>
+   </widget>
+   <addaction name="menuInicio"/>
+   <addaction name="menuAyuda"/>
+  </widget>
+
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
