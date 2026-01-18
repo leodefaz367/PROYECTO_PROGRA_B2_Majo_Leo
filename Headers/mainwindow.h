@@ -23,6 +23,14 @@ public:
 private slots:
     void on_btnAgregar_clicked();
 
+    void on_btnEditar_clicked();
+
+    void on_btnCargar_clicked();
+
+    void on_btnEliminar_clicked();
+
+    void on_TableJugadores_cellClicked(int row, int column);
+
 private:
     Ui::MainWindow *ui;
 
