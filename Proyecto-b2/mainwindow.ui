@@ -13,7 +13,199 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
+  <property name="styleSheet">
+   <string notr="true">QWidget {
+    background-color: #34D399;
+}
+</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QGroupBox" name="groupBox">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>70</y>
+      <width>391</width>
+      <height>421</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QWidget {
+    background-color: #FFFFFF;
+}</string>
+    </property>
+    <property name="title">
+     <string/>
+    </property>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>40</y>
+       <width>311</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: #1E1E1E;
+font-size: 22px;
+font-weight: bold;
+</string>
+     </property>
+     <property name="text">
+      <string>REGISTRO DE JUGADORES DE </string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>140</y>
+       <width>63</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel {
+    color: #1E1E1E;
+    font-size: 14px;
+}</string>
+     </property>
+     <property name="text">
+      <string>USUARIO</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>220</y>
+       <width>111</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel {
+    color: #1E1E1E;
+    font-size: 14px;
+}</string>
+     </property>
+     <property name="text">
+      <string>CONTRASEÑA</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>160</y>
+       <width>251</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLineEdit {
+    border: none;
+    border-bottom: 2px solid #A8E6CF;
+    font-size: 13px;
+    padding: 5px;
+    color: #1E1E1E;
+    background: transparent;
+}
+</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_2">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>250</y>
+       <width>251</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLineEdit {
+    border: none;
+    border-bottom: 2px solid #A8E6CF;
+    font-size: 13px;
+    padding: 5px;
+    color: #1E1E1E;
+    background: transparent;
+}
+</string>
+     </property>
+     <property name="echoMode">
+      <enum>QLineEdit::EchoMode::Password</enum>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>320</y>
+       <width>90</width>
+       <height>29</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0,
+                                      stop:0 #6EE7B7, stop:1 #34D399);
+    color: white;
+    border-radius: 5px;
+    height: 30px;
+    font-weight: bold;
+}</string>
+     </property>
+     <property name="text">
+      <string>INGRESAR</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_2">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>360</y>
+       <width>111</width>
+       <height>29</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0,
+                                      stop:0 #6EE7B7, stop:1 #34D399);
+    color: white;
+    border-radius: 5px;
+    height: 30px;
+    font-weight: bold;
+}</string>
+     </property>
+     <property name="text">
+      <string>REGISTRARSE</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>80</y>
+       <width>91</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: #1E1E1E;
+font-size: 22px;
+font-weight: bold;
+</string>
+     </property>
+     <property name="text">
+      <string>FUTBOL</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
