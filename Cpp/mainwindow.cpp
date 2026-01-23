@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
+
 #include <QMessageBox>
 #include <QTableWidgetItem>
 #include <QAbstractItemView>
@@ -12,6 +13,9 @@ MainWindow::MainWindow(QWidget *parent)
 
 {
     ui->setupUi(this);
+    this->hide();
+
+    this->show();
 
     ui ->TableJugadores->setSelectionBehavior(QAbstractItemView::SelectRows);
     ui->TableJugadores->setSelectionMode(QAbstractItemView::SingleSelection);
@@ -93,8 +97,8 @@ void MainWindow::on_btnAgregar_clicked()
     }
 
     Jugador j(nombre, edad, pos, num, goles);
-    m_jugadores.append(j); //Guarda en la memoria
-    m_repo.saveAll(m_jugadores); //Guarda en el txt
+    m_jugadores.append(j);
+    m_repo.saveAll(m_jugadores);
     agregarJugadorATabla(j);
     ui->txtNombre->clear();
     ui->txtEdad->clear();
@@ -206,5 +210,49 @@ void MainWindow::on_TableJugadores_cellClicked(int row, int column)
     ui->txtCamiseta->setText(QString::number(j.numeroCamiseta));
     ui->txtGoles->setText(QString::number(j.goles));
 
+}
+
+
+void MainWindow::on_btnBuscar_clicked()
+{
+      QString texto = ui->txtBuscar->text().trimmed();
+
+        if (texto.isEmpty()) {
+            QMessageBox::warning(this, "Buscar", "Ingrese un dato para buscar");
+            return;
+        }
+
+        ui->TableJugadores->setRowCount(0);
+
+        bool encontrado = false;
+
+        for (Jugador &j : m_jugadores) {
+
+            if (j.nombre.contains(texto, Qt::CaseInsensitive) ||
+                j.posicion.contains(texto, Qt::CaseInsensitive)) {
+
+                agregarJugadorATabla(j);
+                encontrado = true;
+            }
+        }
+
+        if (!encontrado) {
+            QMessageBox::information(this, "Resultado", "No se encontró ningún jugador");
+        }
+
+
+}
+
+
+void MainWindow::on_btnGuardar_clicked()
+{
+
+    QString nombre   = ui->txtNombre->text().trimmed();
+    QString edadStr  = ui->txtEdad->text().trimmed();
+    QString pos      = ui->txtPosicion->text().trimmed();
+    QString numStr   = ui->txtCamiseta->text().trimmed();
+    QString golesStr = ui->txtGoles->text().trimmed();
+
+    this->close();
 }
 

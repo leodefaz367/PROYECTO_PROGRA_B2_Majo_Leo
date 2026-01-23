@@ -31,6 +31,10 @@ private slots:
 
     void on_TableJugadores_cellClicked(int row, int column);
 
+    void on_btnBuscar_clicked();
+
+    void on_btnGuardar_clicked();
+
 private:
     Ui::MainWindow *ui;
 
