@@ -50,6 +50,13 @@ void MainWindow::agregarJugadorATabla(const Jugador &j)
     ui->TableJugadores->setItem(fila, 3, new QTableWidgetItem(QString::number(j.numeroCamiseta)));
 
     ui->TableJugadores->setItem(fila, 4, new QTableWidgetItem(QString::number(j.goles)));
+    ui->txtNombre->clear();
+    ui->txtEdad->clear();
+    ui->txtPosicion->clear();
+    ui->txtCamiseta->clear();
+    ui->txtGoles->clear();
+    ui->txtBuscar->clear();
+
 }
 
 MainWindow::~MainWindow()
@@ -59,6 +66,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_btnAgregar_clicked()
 {
+
     QString nombre = ui->txtNombre->text().trimmed();
     QString edadStr = ui->txtEdad->text().trimmed();
     QString pos = ui->txtPosicion->text().trimmed();
@@ -105,7 +113,7 @@ void MainWindow::on_btnAgregar_clicked()
     ui->txtPosicion->clear();
     ui->txtCamiseta->clear();
     ui->txtGoles->clear();
-    ui->txtNombre->setFocus();
+    ui->txtBuscar->clear();
 
 }
 
@@ -165,13 +173,21 @@ void MainWindow::on_btnEditar_clicked()
 
 void MainWindow::on_btnCargar_clicked()
 {
+
     cargarJugadoresEnTabla();
+    ui->txtBuscar->clear();
+    ui->txtNombre->clear();
+    ui->txtEdad->clear();
+    ui->txtPosicion->clear();
+    ui->txtCamiseta->clear();
+    ui->txtGoles->clear();
     ui->txtBuscar->clear();
 }
 
 
 void MainWindow::on_btnEliminar_clicked()
 {
+
     int fila = ui->TableJugadores->currentRow();
 
     if (fila<0){
@@ -190,6 +206,12 @@ void MainWindow::on_btnEliminar_clicked()
     m_repo.saveAll(m_jugadores);
 
     cargarJugadoresEnTabla();
+    ui->txtNombre->clear();
+    ui->txtEdad->clear();
+    ui->txtPosicion->clear();
+    ui->txtCamiseta->clear();
+    ui->txtGoles->clear();
+    ui->txtBuscar->clear();
 
 }
 
@@ -240,18 +262,40 @@ void MainWindow::on_btnBuscar_clicked()
             QMessageBox::information(this, "Resultado", "No se encontró ningún jugador");
         }
 
+        ui->txtNombre->clear();
+        ui->txtEdad->clear();
+        ui->txtPosicion->clear();
+        ui->txtCamiseta->clear();
+        ui->txtGoles->clear();
+        ui->txtBuscar->clear();
 
 }
 
 
 void MainWindow::on_btnGuardar_clicked()
 {
+    auto respuesta = QMessageBox::question(
+        this,
+        "Confirmar",
+        "¿Desea guardar todos los cambios?"
+        );
+
+    if (respuesta != QMessageBox::Yes) {
+        return;
+    }
+
 
     QString nombre   = ui->txtNombre->text().trimmed();
     QString edadStr  = ui->txtEdad->text().trimmed();
     QString pos      = ui->txtPosicion->text().trimmed();
     QString numStr   = ui->txtCamiseta->text().trimmed();
     QString golesStr = ui->txtGoles->text().trimmed();
+    ui->txtNombre->clear();
+    ui->txtEdad->clear();
+    ui->txtPosicion->clear();
+    ui->txtCamiseta->clear();
+    ui->txtGoles->clear();
+    ui->txtBuscar->clear();
 
     this->close();
 }

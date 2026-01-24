@@ -227,7 +227,25 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">QFrame#frameLogin { background-color: #4dd0e1; /* verde agua */ border-radius: 12px; padding: 20px; }</string>
+     <string notr="true">QTableWidget {
+  background-color: #1E3A5F;
+
+    color: white;                /* letras blancas */
+    gridline-color: #415A77;
+}
+
+QHeaderView::section {
+    background-color: #1B263B;   /* encabezado */
+    color: white;
+    font-weight: bold;
+    border: 1px solid #415A77;
+}
+
+QTableWidget::item:selected {
+    background-color: #415A77;   /* selección */
+    color: white;
+}
+</string>
     </property>
     <column>
      <property name="text">
