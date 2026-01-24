@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>login</class>
+ <widget class="QDialog" name="login">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>652</width>
+    <height>606</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget { background-color: #0b1d3a; /* fondo oscuro */ }</string>
+  </property>
+  <widget class="QPushButton" name="btnLogin">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>470</y>
+     <width>121</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton { background-color: #28a745; /* verde brillante */ color: #ffffff; border-radius: 6px; padding: 6px 12px; font-weight: bold; } QPushButton:hover { background-color: #34d058; /* verde más claro */ } QPushButton:pressed { background-color: #1f3b60; /* azul intermedio */ }
+     </string>
+   </property>
+   <property name="text">
+    <string>INGRESAR</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnRegistrar">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>530</y>
+     <width>141</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton { background-color: #28a745; /* verde brillante */ color: #ffffff; border-radius: 6px; padding: 6px 12px; font-weight: bold; } QPushButton:hover { background-color: #34d058; /* verde más claro */ } QPushButton:pressed { background-color: #1f3b60; /* azul intermedio */ }
+     </string>
+   </property>
+   <property name="text">
+    <string>REGISTRARSE</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="txtUsuario">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>240</y>
+     <width>241</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #2ecc71;
+    color: black;
+    padding: 4px;
+}
+
+QLineEdit:focus {
+    border-bottom: 2px solid #27ae60;
+}
+QLineEdit {
+    color: white;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #2ecc71;
+    padding: 4px;
+}
+
+QLineEdit::placeholder {
+    color: rgba(255, 255, 255, 120);
+}
+</string>
+   </property>
+   <property name="placeholderText">
+    <string>USUARIO</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="txtContrasenia">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>360</y>
+     <width>241</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #2ecc71;
+    color: black;
+    padding: 4px;
+}
+
+QLineEdit:focus {
+    border-bottom: 2px solid #27ae60;
+}
+QLineEdit {
+    color: white;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #2ecc71;
+    padding: 4px;
+}
+
+QLineEdit::placeholder {
+    color: rgba(255, 255, 255, 120);
+}
+
+</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="echoMode">
+    <enum>QLineEdit::EchoMode::Password</enum>
+   </property>
+   <property name="placeholderText">
+    <string>CONTRASEÑA</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>230</y>
+     <width>41</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>-1</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel {
+    background: transparent;
+    color: black;
+    font-size: 32px;
+}
+</string>
+   </property>
+   <property name="text">
+    <string>👤</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>350</y>
+     <width>41</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel {
+    background: transparent;
+    color: black;
+    font-size: 32px;
+}
+</string>
+   </property>
+   <property name="text">
+    <string>🔒</string>
+   </property>
+   <property name="buddy">
+    <cstring>txtContrasenia</cstring>
+   </property>
+  </widget>
+  <widget class="QWidget" name="j" native="true">
+   <property name="geometry">
+    <rect>
+     <x>-50</x>
+     <y>0</y>
+     <width>711</width>
+     <height>141</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QWidget {
+    background-color: #81c784;   /* verde medio oscuro */
+    color: #1b5e20;              /* verde muy oscuro para texto */
+    
+}
+</string>
+   </property>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>30</y>
+      <width>381</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe MDL2 Assets</family>
+      <pointsize>16</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel {
+    color: white;
+    ;
+    font-weight: bold;
+    background: transparent;
+}
+</string>
+    </property>
+    <property name="text">
+     <string>REGISTRO DE JUGADORES</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>70</y>
+      <width>171</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe MDL2 Assets</family>
+      <pointsize>16</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel {
+    color: white;
+    ;
+    font-weight: bold;
+    background: transparent;
+}
+</string>
+    </property>
+    <property name="text">
+     <string>DE FUTBOL</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

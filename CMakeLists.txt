@@ -14,18 +14,21 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
 # === Archivos del proyecto, usando tus carpetas Cpp / Headers / Ui ===
 set(PROJECT_SOURCES
-            Cpp/main.cpp
-            Cpp/mainwindow.cpp
-            Cpp/jugador.cpp
-            Cpp/jugadorrepository.cpp
 
+                Cpp/main.cpp
+                Cpp/mainwindow.cpp
+                Cpp/jugador.cpp
+                Cpp/jugadorrepository.cpp
+                Cpp/login.cpp
 
-            Headers/mainwindow.h
-            Headers/jugador.h
-            Headers/jugadorrepository.h
+                Headers/mainwindow.h
+                Headers/jugador.h
+                Headers/jugadorrepository.h
+                Headers/login.h
 
+                Ui/mainwindow.ui
+                Ui/login.ui
 
-            Ui/mainwindow.ui
 
 )
 
@@ -33,6 +36,9 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(RegistroJugadores
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
+
+
+
     )
 else()
     if(ANDROID)
