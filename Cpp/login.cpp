@@ -21,7 +21,15 @@ void login::usuarioExiste(QString usuario, bool &existe, QString &contraseniaGua
 {
     existe = false;
 
+
     QFile archivo("usuarios.txt");
+
+    if (!archivo.exists()) {
+        archivo.open(QIODevice::WriteOnly | QIODevice::Text);
+        archivo.close();
+        return;
+    }
+
     if (!archivo.open(QIODevice::ReadOnly | QIODevice::Text))
         return;
 
@@ -45,6 +53,10 @@ void login::on_btnRegistrar_clicked()
     QString usuario = ui->txtUsuario->text().trimmed();
     QString contrasenia = ui->txtContrasenia->text().trimmed();
 
+    if (usuario.length() == 0 || contrasenia.length() == 0) {
+        QMessageBox::warning(this, "Registro", "Es obligatorio llenar todos los campos");
+        return;
+    }
     bool existe;
     QString temporal;
     usuarioExiste(usuario, existe, temporal);
@@ -74,15 +86,24 @@ void login::on_btnLogin_clicked()
 {
     QString usuario = ui->txtUsuario->text().trimmed();
     QString contrasenia = ui->txtContrasenia->text().trimmed();
-
+    if (usuario.length() == 0 || contrasenia.length() == 0) {
+        QMessageBox::warning(this, "Login", "Es obligatorio llenar todos los campos");
+        return;
+    }
     bool existe;
     QString contraseniaGuardada;
     usuarioExiste(usuario, existe, contraseniaGuardada);
 
     if (!existe) {
-        QMessageBox::warning(this, "Login", "Usuario incorrecto");
+        QMessageBox::warning(this, "Login", "El usuario no existe, por favor regístrese");
+        ui->txtUsuario->clear();
+        ui->txtContrasenia->clear();
+        ui->txtUsuario->setFocus();
+
         return;
+
     }
+
 
     if (contrasenia != contraseniaGuardada) {
         QMessageBox::warning(this, "Login", "Contrasenia incorrecta");
