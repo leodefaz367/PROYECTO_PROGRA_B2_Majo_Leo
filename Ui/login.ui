@@ -47,7 +47,7 @@
      </string>
    </property>
    <property name="text">
-    <string>REGISTRARSE</string>
+    <string>REGISTRAR</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="txtUsuario">
