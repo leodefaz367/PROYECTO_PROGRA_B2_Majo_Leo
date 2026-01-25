@@ -25,6 +25,7 @@ private slots:
 private:
     Ui::login *ui;
     void usuarioExiste(QString usuario, bool &existe, QString &contraseniaGuardada);
+    int intentosFallidos = 0;
 };
 
 #endif

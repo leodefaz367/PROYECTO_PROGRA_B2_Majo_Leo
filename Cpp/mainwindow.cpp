@@ -104,6 +104,13 @@ void MainWindow::on_btnAgregar_clicked()
         return;
     }
 
+    for (const Jugador &j : m_jugadores) {
+        if (j.nombre.compare(nombre, Qt::CaseInsensitive) == 0) {
+            QMessageBox::warning(this, "Jugador duplicado", "Ya existe un jugador con ese nombre.");
+            return;
+        }
+    }
+
     Jugador j(nombre, edad, pos, num, goles);
     m_jugadores.append(j);
     m_repo.saveAll(m_jugadores);
@@ -150,6 +157,14 @@ void MainWindow::on_btnEditar_clicked()
     if(!okEdad||!okNum||!okGoles){
         QMessageBox::warning(this, "Datos Invalidos", "Por favor ingrese números enteros (edad,goles,numero)");
         return;
+    }
+
+    for (int i = 0; i < m_jugadores.size(); ++i) {
+        if (i == fila) continue;
+        if (m_jugadores[i].nombre.compare(nombre, Qt::CaseInsensitive) == 0) {
+            QMessageBox::warning(this, "Nombre duplicado", "Ya existe otro jugador con ese nombre.");
+            return;
+        }
     }
 
     m_jugadores[fila].nombre = nombre;
@@ -237,37 +252,37 @@ void MainWindow::on_TableJugadores_cellClicked(int row, int column)
 
 void MainWindow::on_btnBuscar_clicked()
 {
-      QString texto = ui->txtBuscar->text().trimmed();
+    QString texto = ui->txtBuscar->text().trimmed();
 
-        if (texto.isEmpty()) {
-            QMessageBox::warning(this, "Buscar", "Ingrese un dato para buscar");
-            return;
+    if (texto.isEmpty()) {
+        QMessageBox::warning(this, "Buscar", "Ingrese un dato para buscar");
+        return;
+    }
+
+    ui->TableJugadores->setRowCount(0);
+
+    bool encontrado = false;
+
+    for (Jugador &j : m_jugadores) {
+
+        if (j.nombre.contains(texto, Qt::CaseInsensitive) ||
+            j.posicion.contains(texto, Qt::CaseInsensitive)) {
+
+            agregarJugadorATabla(j);
+            encontrado = true;
         }
+    }
 
-        ui->TableJugadores->setRowCount(0);
+    if (!encontrado) {
+        QMessageBox::information(this, "Resultado", "No se encontró ningún jugador");
+    }
 
-        bool encontrado = false;
-
-        for (Jugador &j : m_jugadores) {
-
-            if (j.nombre.contains(texto, Qt::CaseInsensitive) ||
-                j.posicion.contains(texto, Qt::CaseInsensitive)) {
-
-                agregarJugadorATabla(j);
-                encontrado = true;
-            }
-        }
-
-        if (!encontrado) {
-            QMessageBox::information(this, "Resultado", "No se encontró ningún jugador");
-        }
-
-        ui->txtNombre->clear();
-        ui->txtEdad->clear();
-        ui->txtPosicion->clear();
-        ui->txtCamiseta->clear();
-        ui->txtGoles->clear();
-        ui->txtBuscar->clear();
+    ui->txtNombre->clear();
+    ui->txtEdad->clear();
+    ui->txtPosicion->clear();
+    ui->txtCamiseta->clear();
+    ui->txtGoles->clear();
+    ui->txtBuscar->clear();
 
 }
 
@@ -299,4 +314,3 @@ void MainWindow::on_btnGuardar_clicked()
 
     this->close();
 }
-

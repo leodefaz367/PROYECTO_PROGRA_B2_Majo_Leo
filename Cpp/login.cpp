@@ -1,9 +1,6 @@
 
 #include "login.h"
 #include "ui_login.h"
-
-
-
 login::login(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::login)
@@ -106,14 +103,35 @@ void login::on_btnLogin_clicked()
 
 
     if (contrasenia != contraseniaGuardada) {
-        QMessageBox::warning(this, "Login", "Contrasenia incorrecta");
-        return;
-    }
 
-    QMessageBox::information(this, "Login", "Bienvenido " + usuario);
+            intentosFallidos++;
+
+            QMessageBox::warning(
+                this,
+                "Login",
+                "Usuario y/o Contraseña incorrecta\nIntentos restantes: "
+                    + QString::number(3 - intentosFallidos)
+                );
+
+            if (intentosFallidos >= 3) {
+                QMessageBox::critical(
+                    this,
+                    "Login",
+                    "Has superado el número máximo de intentos.\nLa aplicación se cerrará."
+                    );
+                reject();
+                return;
+            }
+
+            ui->txtContrasenia->clear();
+            ui->txtContrasenia->setFocus();
+            return;
+        }
+
+        QMessageBox::information(this, "Login", "Bienvenido " + usuario);
+        intentosFallidos = 0;
     accept();
 
     ui->txtUsuario->clear();
     ui->txtContrasenia->clear();
 }
-
