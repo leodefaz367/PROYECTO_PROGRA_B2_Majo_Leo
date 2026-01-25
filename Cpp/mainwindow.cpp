@@ -104,6 +104,13 @@ void MainWindow::on_btnAgregar_clicked()
         return;
     }
 
+    for (const Jugador &j : m_jugadores) {
+        if (j.nombre.compare(nombre, Qt::CaseInsensitive) == 0) {
+            QMessageBox::warning(this, "Jugador duplicado", "Ya existe un jugador con ese nombre.");
+            return;
+        }
+    }
+
     Jugador j(nombre, edad, pos, num, goles);
     m_jugadores.append(j);
     m_repo.saveAll(m_jugadores);
@@ -150,6 +157,14 @@ void MainWindow::on_btnEditar_clicked()
     if(!okEdad||!okNum||!okGoles){
         QMessageBox::warning(this, "Datos Invalidos", "Por favor ingrese números enteros (edad,goles,numero)");
         return;
+    }
+
+    for (int i = 0; i < m_jugadores.size(); ++i) {
+        if (i == fila) continue;
+        if (m_jugadores[i].nombre.compare(nombre, Qt::CaseInsensitive) == 0) {
+            QMessageBox::warning(this, "Nombre duplicado", "Ya existe otro jugador con ese nombre.");
+            return;
+        }
     }
 
     m_jugadores[fila].nombre = nombre;
