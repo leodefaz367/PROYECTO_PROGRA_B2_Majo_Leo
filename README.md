@@ -1,7 +1,7 @@
 # PROYECTO_PROGRAMACION_SEGUNDO_BIMESTRE
 ## Gestión de Jugadores – Qt / C++
 
-Aplicación de escritorio desarrollada en **Qt y C++** para administrar jugadores de fútbol mediante una interfaz gráfica.
+Proyecto académico enfocado en la aplicación real de programación con interfaces gráficas
 
 ### Funciones
 - Login
