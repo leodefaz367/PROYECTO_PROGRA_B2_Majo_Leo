@@ -18,7 +18,7 @@ Proyecto académico para la aplicación práctica de programación con interface
 
 ### Autores
 - Valdivieso Marjorie
-- Defaz Leonardo
+- Defaz- Leonardo
   
 
 
